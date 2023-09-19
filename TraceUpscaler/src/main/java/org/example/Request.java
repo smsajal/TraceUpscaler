@@ -1,4 +1,4 @@
-package entity;
+package org.example;
 
 public interface Request {
 	
@@ -9,6 +9,5 @@ public interface Request {
 	abstract public long getThinkTime ( );
 	
 	public abstract String getParameter ( );
-	
-	public abstract long getParamterSize ( );
+
 }

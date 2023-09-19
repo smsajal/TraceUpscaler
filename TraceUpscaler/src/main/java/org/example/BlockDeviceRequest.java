@@ -1,6 +1,4 @@
-package entity;
-
-import utility.FileUtility;
+package org.example;
 
 import java.io.Serializable;
 
@@ -16,14 +14,11 @@ public class BlockDeviceRequest implements Request, Serializable {
 	}
 	
 	private String parameter;
-//	FileUtility fileUtility;
-	
+
 	public BlockDeviceRequest ( RequestType requestType, long offsetInBytes, int payloadSizeInBytes ) {
 		this.offsetInBytes = offsetInBytes;
 		this.payloadSizeInBytes = payloadSizeInBytes;
 		this.requestType = requestType;
-//		this.fileUtility = new FileUtility ( );
-//		this.parameter = this.fileUtility.generateRandomAlphaNumericString ( this.payloadSizeInBytes );
 	}
 	
 	@Override
@@ -46,12 +41,7 @@ public class BlockDeviceRequest implements Request, Serializable {
 	public String getParameter ( ) {
 		return this.parameter;
 	}
-	
-	@Override
-	public long getParamterSize ( ) {
-		return this.payloadSizeInBytes;
-	}
-	
+
 	public long getOffsetInBytes ( ) {
 		return offsetInBytes;
 	}

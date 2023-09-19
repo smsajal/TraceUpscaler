@@ -1,4 +1,4 @@
-package entity;
+package org.example;
 
 import java.io.Serializable;
 
@@ -40,11 +40,6 @@ public class DStarSocMedRequest implements Request, Serializable {
     @Override
     public String getParameter ( ) {
         return null;
-    }
-
-    @Override
-    public long getParamterSize ( ) {
-        return 0;
     }
 
 

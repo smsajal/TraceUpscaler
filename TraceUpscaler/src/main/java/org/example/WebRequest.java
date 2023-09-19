@@ -1,4 +1,4 @@
-package entity;
+package org.example;
 
 
 import java.io.Serializable;
@@ -22,32 +22,21 @@ public class WebRequest implements Request, Serializable {
         return thinkTime;
     }
 
-    public void setThinkTime ( long thinkTime ) {
-        this.thinkTime = thinkTime;
-    }
+
 
     @Override
     public RequestType getRequestType ( ) {
         return requestType;
     }
 
-    public void setRequestType ( RequestType requestType ) {
-        this.requestType = requestType;
-    }
+
 
     @Override
     public String getParameter ( ) {
         return parameter;
     }
 
-    @Override
-    public long getParamterSize ( ) {
-        return this.parameter.length ( );
-    }
 
-    public void setParameter ( String parameter ) {
-        this.parameter = parameter;
-    }
 
     @Override
     public String writeFormat ( ) {

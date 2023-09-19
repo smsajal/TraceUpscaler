@@ -1,6 +1,6 @@
-package scaling;
+package org.example;
 
-import entity.TraceLine;
+
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.math3.random.RandomDataGenerator;
 
@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TspanRepeat {
+public class TraceUpscaler {
 
     public List< Long > getNewArrivalTimes ( List< Long > oldArrivalTimes, float upscalingFactor ) {
 
@@ -18,20 +18,16 @@ public class TspanRepeat {
         int requiredSize = oldArrivalTimes.size ( );
         int whole = ( int ) ( Math.floor ( upscalingFactor ) );
         double fraction = upscalingFactor - whole;
-        System.out.println ( "whole: " + whole + " fraction: " + fraction );
 
-        int incrCounter = 0;
-        int idx = 0;
+
         for ( Long x : oldArrivalTimes
         ) {
 
-            idx++;
+
             int newRequestCount = whole;
             if ( new RandomDataGenerator ( ).nextUniform ( 0, 1 ) < fraction ) {
-
-//                newRequestCount += ( int ) Math.ceil ( whole * fraction );
                 newRequestCount++;
-                incrCounter++;
+
             }
             List< Long > samples = new ArrayList<> ( Collections.nCopies ( newRequestCount, x ) );
 
@@ -43,14 +39,13 @@ public class TspanRepeat {
             }
         }
 
-        System.out.println ( "incr counter: " + incrCounter + " total_count: " + oldArrivalTimes.size ( ) + "  idx: " + idx );
-        System.out.println ( "incr pct: " + ( ( incrCounter * 100.0 ) / ( oldArrivalTimes.size ( ) * 1.0 ) ) );
+
         newArrivalTimes = newArrivalTimes.subList ( 0, requiredSize );
 
         return newArrivalTimes;
     }
 
-    public ArrayList< TraceLine > tspanRepeat ( ArrayList< TraceLine > traceLines, float upscalingFactor ) {
+    public ArrayList< TraceLine > upscaleTrace ( ArrayList< TraceLine > traceLines, float upscalingFactor ) {
 
 
         List< Long > initialStartTimes = traceLines.stream ( ).map ( TraceLine :: getInitialStartTime ).collect ( Collectors.toList ( ) );
