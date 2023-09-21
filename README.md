@@ -43,7 +43,8 @@ This should run with `Java 17+`. Please follow the following commands to run it:
 cd test
 
 
-# to store the upscaled trace in a file called 'upscaled_trace.txt' from the file 'source_trace.txt',
+# to store the upscaled trace in a file
+#called 'upscaled_trace.txt' from the file 'source_trace.txt',
 # where the upscaling factor is 2
 
 java -jar TraceUpscaler.jar source_trace.txt upscaled_trace.txt 2
