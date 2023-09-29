@@ -2,6 +2,16 @@
 
 _TraceUpscaler_ is an offline tool to upscale user traffic trace (by increasing load) from open-loop latency sensitive applications.
 
+## Repository Outline
+The figure here outlines the repository.
+```
+    TraceUpscaler
+    ├── TraceUpscaler (gradle project)
+    └── test (test helper content)
+```
+
+This repository contains a gradle project which shares the same with the repository, `TraceUpscaler`, that contains the source code for the tool.
+There is another directory labeled `test`, which contains resources for quick testing of the tool.
 ## Requirements
 
 The source code requires to be compiled with `Java 17`, (we used `Java Corretto 17.0.3`).
@@ -14,13 +24,14 @@ Google Gson 2.7
 
 ## How to run
 
-Please open directory `TraceUpscaler` as a gradle project in your choice of IDE (we used `IntelliJ IDEA`), and run the `Test.java` file in the `org.example` package from the IDE, by changing the values of the following variables:
+Please open directory  of the gradle project, `TraceUpscaler`, in your choice of IDE (we used `IntelliJ IDEA`), and run the `Test.java` file in the `org.example` package from the IDE, by changing the values of the following variables:
 > __sourceTracePath__: In the main method, change the value to the absolute path of the source trace file.
 
 > __destTracePath__:  In the main method, change the value to the destination path of the upscaled trace file.
 
 > __scalingFactor__:  In the main method, change the value to the desired upscaling factor. 
 
+__Note:__ Please make sure you open the gradle project in the IDE. Opening the root directory of the repository will result in the IDE not being able to detect the project inside it.
  
 
 
