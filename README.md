@@ -1,10 +1,21 @@
 # _TraceUpscaler_
 
 _TraceUpscaler_ is an offline tool to upscale user traffic trace (by increasing load) from open-loop latency sensitive applications.
+_TraceUpscaler_ is published as a __research paper__ in Nineteenth European Conference on Computer Systems, [EuroSys 2024](https://2024.eurosys.org/).
+
+ACM DOI Number: 10.1145/3627703.3629581.
+
+## Abstract
+Trace replay is a common approach for evaluating systems by rerunning historical traffic patterns, but it is not always possible to find suitable real-world traces at the desired level of system load. Experimenting with higher traffic loads requires upscaling a trace to artificially increase the load. Unfortunately, most prior research has adopted ad-hoc approaches for upscaling, and there has not been a systematic study of how the upscaling approach impacts the results. One common approach is to count the arrivals in a predefined time-interval and multiply these counts by a factor, but this requires generating new requests/jobs according to some model (e.g., a Poisson process), which may not be realistic. Another common approach is to divide all the timestamps in the trace by an upscaling factor to squeeze the requests into a shorter time period. However, this can distort temporal patterns within the input trace. This paper evaluates the pros and cons of existing trace upscaling techniques and introduces a new approach, _TraceUpscaler_, that avoids the drawbacks of existing methods. The key idea behind _TraceUpscaler_ is to decouple the arrival timestamps from the request parameters/data and upscale just the arrival timestamps in a way that preserves temporal patterns within the input trace. We evaluate _TraceUpscaler_ under multiple experimental settings using both real-world and synthetic traces. Through our study, we identify the trace characteristics that affect the quality of upscaling in existing approaches and show how _TraceUpscaler_ avoids these pitfalls. We also present a case study demonstrating how inaccurate trace upscaling can lead to incorrect conclusions about a system's ability to handle high load.
+
+
+## Citing The Paper
+
 
 ## Repository Outline
 The figure here outlines the repository.
-```
+
+```bash
     TraceUpscaler
     ├── TraceUpscaler (gradle project)
     └── test (test helper content)
@@ -12,10 +23,12 @@ The figure here outlines the repository.
 
 This repository contains a gradle project which shares the same with the repository, `TraceUpscaler`, that contains the source code for the tool.
 There is another directory labeled `test`, which contains resources for quick testing of the tool.
+
 ## Requirements
 
 The source code requires to be compiled with `Java 17`, (we used `Java Corretto 17.0.3`).
 The code also uses the following libraries:
+
 ```
 Apache Commons Lang 3.12.0
 Apache Commons Math 3.6.1
